@@ -1,0 +1,27 @@
+	screen 0,640,480
+	sdim k,65536
+	mesbox k,630,440,5
+	button gosub "•ÏŠ·!",*output
+	stop
+*output
+	screen 1,640,480
+	sdim k2,65536
+	notesel k
+	noteget p1,0
+	strrep p1,"\t","|"
+	lp=stat
+	p1="|"+p1+"|"
+	k2+=p1+"\n"
+		repeat lp+1
+		k2+="|---"
+		loop
+	k2+="|\n"
+	
+		repeat noteinfo(0)-1,1
+		noteget p1,cnt
+		strrep p1,"\t","|"
+		p1="|"+p1+"|"
+		k2+=p1+"\n"
+		loop
+	mesbox k2,630,470,5
+	return
